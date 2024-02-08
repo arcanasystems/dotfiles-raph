@@ -1,5 +1,5 @@
 ## zsh plugins
-source ~/.zsh/plugins/zsh-completions/zsh-completions.zsh
+source ~/.zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -67,7 +67,7 @@ bindkey "^?" backward-delete-char
 # increase open file handle limit 
 ulimit -n 2048
 
-source: ~/.zsh/aliases.zsh
+source ~/.zsh/aliases.zsh
 
 man() {
 	env \

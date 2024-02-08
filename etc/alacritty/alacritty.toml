@@ -15,7 +15,7 @@ shape = "Block"
 size = 17.0
 
 [font.normal]
-family = "SauceCodePro Nerd Font Mono"
+#family = "SauceCodePro Nerd Font Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
