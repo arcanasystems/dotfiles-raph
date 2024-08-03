@@ -16,10 +16,19 @@ vim.opt.rtp:prepend(lazypath)
 opt('g', 'mapleader', ' ')
 
 require('lazy').setup({
+  -- Paper Color
+  'pappasam/papercolor-theme-slim',
+
   -- LSP
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   'neovim/nvim-lspconfig',
+  {
+    'linrongbin16/lsp-progress.nvim',
+    config = function()
+      require('lsp-progress').setup()
+    end
+  },
 
   -- LSP autocomplete completion sources
   'hrsh7th/nvim-cmp',
@@ -85,7 +94,7 @@ require('lazy').setup({
   -- Snippets source for nvim-cmp
   'saadparwaiz1/cmp_luasnip',
   'L3MON4D3/LuaSnip',
-  'SirVer/ultisnips',
+  -- 'SirVer/ultisnips',
 
   -- Cool start screen
   'mhinz/vim-startify',

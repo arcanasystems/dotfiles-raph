@@ -13,7 +13,7 @@ local config = home .. '/.config/nvim'
 local cmd = vim.cmd
 
 opt('o', 'termguicolors', true)
-vim.cmd('colorscheme PaperColor')
+vim.cmd('colorscheme PaperColorSlim')
 vim.cmd('syntax on')
 
 opt('g', 'mapleader', ' ')
@@ -49,6 +49,13 @@ opt('o', 'ttyfast', true)
 opt('o', 'undofile', true)
 opt('o', 'visualbell', true)
 opt('o', 'wildmode', 'longest,list,full')
+
+vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  group = "lualine_augroup",
+  pattern = "LspProgressStatusUpdated",
+  callback = require("lualine").refresh,
+})
 
 vim.api.nvim_exec(
   [[

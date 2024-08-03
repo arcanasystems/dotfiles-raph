@@ -71,6 +71,7 @@ require('nvim-treesitter.configs').setup({
     'html',
     'java',
     'javascript',
+    'json',
     'latex',
     'lua',
     'nix',
@@ -79,7 +80,7 @@ require('nvim-treesitter.configs').setup({
     'toml',
     'tsx',
     'typescript',
-    'typescript',
+    'svelte',
   },
 
   highlight = {
@@ -110,9 +111,9 @@ require('tree-sitter-just').setup({})
 -- ==============================================================================
 -- LSP
 -- ==============================================================================
---
 require("mason").setup()
 require("mason-lspconfig").setup()
+require('lsp-progress').setup()
 
 local lsp = require('lspconfig')
 
@@ -141,7 +142,7 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'tsserver',
-  -- 'shfmt',
+  -- 'svelteserver',
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -267,7 +268,7 @@ require('lualine').setup({
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', { 'filename', file_status = true, path = 1 }, 'diff' },
-    lualine_c = {},
+    lualine_c = { require('lsp-progress').progress },
   },
 })
 
@@ -292,7 +293,7 @@ vim.g.startify_custom_header = {
 }
 
 vim.g.startify_bookmarks = {
-  { v = '~/dotfiles/config/nvim/init.lua' },
+  { v = '~/dotfiles/etc/nvim/init.lua' },
 }
 
 vim.g.startify_commands = {
@@ -330,9 +331,9 @@ map('n', '<F3>', '<CMD>Lexplore<CR>')
 require('nvim_comment').setup()
 vim.keymap.set('n', '<C-c>', '<CMD>CommentToggle<CR>', opts)
 
-vim.g.UltiSnipsExpandTrigger = '<tab>'
-vim.g.UltiSnipsJumpBackwardTrigger = '<c-z>'
-vim.g.UltiSnipsJumpForwardTrigger = '<c-b>'
+-- vim.g.UltiSnipsExpandTrigger = '<tab>'
+-- vim.g.UltiSnipsJumpBackwardTrigger = '<c-z>'
+-- vim.g.UltiSnipsJumpForwardTrigger = '<c-b>'
 
 vim.diagnostic.config({
   virtual_text = false,
